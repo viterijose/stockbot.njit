@@ -1,0 +1,45 @@
+
+{% extends 'financeapp/base.html' %}
+
+{% block title %}Stock Gainers{% endblock %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Market Gainers</h1>
+    <!-- <ul>
+        {% for stock in stocks %}
+            <li>${{ stock }}</li>
+        {% endfor %}
+        </ul> -->
+    <div class="row">
+
+        {% for x in restock %}
+
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{x}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{stock.CompanyName}}</h6>
+                    <h7 class="card-subtitle">Last Price: ${{stock.LastPrice}}</h7>
+                    <br>
+                    <h7 class="card-subtitle">Change:</h7>
+                    <h7 class="card-subtitle" style="color:green">{{stock.PercentChange}}%</h7>
+                    <h7 class="card-subtitle" style="color:green">${{stock.PriceChange}}</h7>
+                    <hr/>
+                    <p class="card-text"  style="font-size:12px; text-align: justify;">{{stock.CompanyDesc}}</p>
+                    <a href="#" class="card-link">News</a>
+                    <a href="#" class="card-link">Candle Graph</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        <!-- <p>Your ip address is {{restock}} <strong></strong></p> -->
+    </div>
+</div>
+
+{% endblock %}
+
+
